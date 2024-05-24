@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/text-alternatives": [
+      "default",
+      {
+        "document-title": "off",
+        "image-alt": "off"
+      }
+    ],
+    "axe/forms": "off",
+    "no-inline-styles": "off",
+    "meta-viewport": "off",
+    "axe/language": "off"
+  }
+}

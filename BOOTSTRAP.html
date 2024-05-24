@@ -1,0 +1,615 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="BOOTSTRAP.css">
+
+
+    <!-- js & bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<style>
+
+/* .perant{
+  overflow: auto;
+} */
+
+.temp{
+  text-decoration: none;
+   background:darkblue ;
+    border:2px solid darkblue;
+    padding: 10px;
+     color: white;
+      border-radius: 6px; 
+
+}
+
+
+
+
+.temp3{
+  text-decoration: none;
+   background:white ;
+    border: 2px solid white;
+    padding: 10px;
+     color: black;
+      border-radius: 2px; 
+
+
+}
+
+.bigtemp{
+  
+/* position: absolute;
+bottom: 5.5px; */
+margin-left: 10px;
+margin-top: 12px;
+}
+
+.link1 {
+text-decoration: none;
+background: #212529; 
+color: white;
+}
+.link2{
+text-decoration: none;
+background: #212529;
+margin-left:16px ;
+font-weight:bold ;
+color: white;
+
+
+}
+.nav-item{
+
+  font-weight: 600;
+  margin-left: 20px;
+}
+.btn{
+margin-inline-start: 350px;
+border-radius: 20px;
+    
+}
+.temp:hover{
+  background-color: cornflowerblue;
+}
+
+
+</style>
+
+
+</head>
+<body>
+    <nav class=" perant    navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container">
+          <a class="navbar-brand" ><img src="data:image/svg+xml;base64,PHN2ZyBpZD0ibG9nbyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTE1NCAzMzgiPjx0aXRsZT5sb2dvLWlvbm9zLWNvbG9yLXdoaXRlPC90aXRsZT48ZyBpZD0ibG9nby1pb25vcy1jb2xvci13aGl0ZSI+PHBhdGggaWQ9Imlvbm9zIiBkPSJNMTA2NS41NzMsMzM2LjE1OGE4NC43MSw4NC43MSwwLDAsMS0xNi45ODktMS43MTgsODgsODgsMCwwLDEtNTguMDYtNDEuNDY1bC0uMzE2LS41ODFjLTYuMjg1LTEyLjU2NC0yLjE1MS0yNy4zNDQsOS42MDUtMzQuNGEyNS4xNTIsMjUuMTUyLDAsMCwxLDEyLjkyLTMuNTcyLDI1LjU4OSwyNS41ODksMCwwLDEsMjIuMjUzLDEzLjA2OGMuMjU5LjQ1OS41NTYuOTU2Ljg2NiwxLjQzNGwyLjcwNiwzLjY4MiwzLjYzNywzLjY3NmEzNS40NzcsMzUuNDc3LDAsMCwwLDE2LjU4OCw4LjAyMywzNi40ODcsMzYuNDg3LDAsMCwwLDI4LjYtNi41MzcsMzQuNjE0LDM0LjYxNCwwLDAsMCwxNC4zNi0yNS44NzEsMzUuNzQ3LDM1Ljc0NywwLDAsMC05Ljk0MS0yNy43NjRzLTc2LjgzMi03OS44LTgwLjI3OS04My41YTk0LjE3NSw5NC4xNzUsMCwwLDEtOS4yNjUtMTFjLTEwLjg0LTE1LjM2NS0xNC4yMy0zMy40OC0xMi41NTctNTEuNDEyYTgzLjQsODMuNCwwLDAsMSwxMC44MTktMzUuNTM0czMuNTItNS45NTMsNC41NTYtNy40NjVjNC4wNy01LjkzNiwxMi4wOC0xMy42MTIsMTcuNTctMTcuOWE5MC4zNzEsOTAuMzcxLDAsMCwxLDE0Ljc0NC04Ljg1Niw4NC4wMzUsODQuMDM1LDAsMCwxLDEwOS42LDMzLjgyNCwyNC45MTQsMjQuOTE0LDAsMCwxLDIuNjU0LDE5LjMwOEEyNS40NTEsMjUuNDUxLDAsMCwxLDExMzcuNSw3Ny4yNzVhMjQuNDE0LDI0LjQxNCwwLDAsMS0xMi40NTUsMy4zODUsMjUuMzc5LDI1LjM3OSwwLDAsMS0yMi4xLTEzLDMzLjQsMzMuNCwwLDAsMC0yMi4zNjQtMTUuODA2LDM0LjYzMSwzNC42MzEsMCwwLDAtMjcuMTE3LDYuMSwzMy4wNSwzMy4wNSwwLDAsMC0xMi44MjksMjMuOTIsMzMuNjE2LDMzLjYxNiwwLDAsMCw5LjE1MywyNS45MzVsNzguNTQ5LDgxYTg3LjgzNCw4Ny44MzQsMCwwLDEsMjQuMzYsNjYuOTIyYy0yLjIzNSwyNS4xODYtMTQuNzU0LDQ4LjAwOC0zNC4zNTksNjIuN2E4OC41MDcsODguNTA3LDAsMCwxLTUyLjc2MiwxNy43MzJtLTI0OC42LS4wMzNhODQuNTg0LDg0LjU4NCwwLDAsMCw4NC40NzktODQuNDkyVjg0LjUyOGE4NC40ODMsODQuNDgzLDAsMCwwLTE2OC45NjUsMFYyNTEuNjMzYTg0LjU4NSw4NC41ODUsMCwwLDAsODQuNDg2LDg0LjQ5Mm0wLTI4NS4wNjRjMTguMTQ1LDAsMzMuNDczLDE1LjMyMiwzMy40NzMsMzMuNDY3VjI1MS42MzNhMzMuNTE0LDMzLjUxNCwwLDAsMS0zMy40NzMsMzMuNDc0QTMzLjExOCwzMy4xMTgsMCwwLDEsNzgzLjUsMjUxLjYzM1Y4NC41MjhhMzMuNTExLDMzLjUxMSwwLDAsMSwzMy40ODEtMzMuNDY3TTQzNy41NTcsNjYuNTVWMzEwLjZhMjUuNSwyNS41LDAsMCwwLDUxLjAwNSwwVjE3Mi40Wm0xMzguMzU2LDk3LjNWMjUuNTM4YTI1LjUwNiwyNS41MDYsMCwwLDEsNTEuMDExLDBWMjY5LjcwNlpNNjI2LjUsMzA1LjEwNXY1LjQ1YTI1LjYsMjUuNiwwLDAsMS00OC4zNjMsMTEuNTY1TDQzNy44NzYsMzEuMzU4di01LjgyQTI1LjI3MywyNS4yNzMsMCwwLDEsNDUyLjQyMSwyLjYxM2EyNS4yMzIsMjUuMjMyLDAsMCwxLDM0LjA1MSwxMS44OTJabS0zNzkuODIzLDMxLjAyYTg0LjU5MSw4NC41OTEsMCwwLDAsODQuNDgtODQuNDkyVjg0LjUyOGE4NC40ODMsODQuNDgzLDAsMCwwLTE2OC45NjUsMFYyNTEuNjMzYTg0LjU4OSw4NC41ODksMCwwLDAsODQuNDg1LDg0LjQ5Mm0wLTI4NS4wNjRhMzMuOTY1LDMzLjk2NSwwLDAsMSwzMy40NzQsMzMuNDY3VjI1MS42MzNhMzMuNDc1LDMzLjQ3NSwwLDEsMS02Ni45NDgsMFY4NC41MjhhMzMuNTEyLDMzLjUxMiwwLDAsMSwzMy40NzQtMzMuNDY3TTAsMzA3LjkxN2EyNy44MTksMjcuODE5LDAsMSwwLDU1LjYzNywwVjI3LjgxOEEyNy44MTksMjcuODE5LDAsMCwwLDAsMjcuODE4WiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvZz48L3N2Zz4=" alt="IONOS cloud" width="102" aria-labelledby="header-logo"></a>
+
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <nav class=" edge   navbar navbar-light ">
+                <form class="container justify-content-start">
+                 
+
+
+
+                 
+                </form>
+                
+              </nav>
+            
+                <div class="bigtemp">
+              <a class="temp" href="#">Domains & Hosting</a>
+              <a class="temp3" href="#">Cloud Computing</a>
+            </div>
+
+
+
+
+        
+            </ul>
+            <div class="links">
+
+              <a class="link1" href="#">support</a>
+              <a class="link2" href="#">Sign in</a>
+                          </div>
+
+             </div>
+        </div>
+      </nav>
+    
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+         
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Why IONOS</a>
+              </li>
+           
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Products</a>
+              </li>
+           
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Solutions</a>
+              </li>
+           
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Prices</a>
+              </li>
+           
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Get Started</a>
+              </li>
+           
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Partners</a>
+              </li>
+           
+
+              <button type="button" class="btn btn-primary active " data-bs-toggle="button" autocomplete="off" aria-pressed="true">Try IONOS Cloud</button>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="home">
+        <div class="texting">
+          <p class="p1">IONOS Startup Program</p>
+          
+          <h1>The cloud that grows with <br> your business</h1>
+          <br>
+          <br>
+          <h4>Migrate to the cloud step by step or scale at full speed with IONOS.</h4>
+          
+          
+          <p>   $5,000 to spend on IONOS products
+            <br>
+            
+            Individual support from cloud experts
+            <br>
+            
+            Secure solutions, hosted sustainably</p>
+          
+
+            <button class="btn btn-primary mx-2 mt-3  btn1"> Apply now      </button>
+
+          </div>
+          
+<div class="sources"></div>
+      </div>
+
+
+
+
+
+    <div class="text">
+
+<h1>How does IONOS support growing startups?</h1>
+
+
+<div class="div1">
+
+<p>
+  Growing your business while managing increasing data and compute demands can be hard. That’s where the IONOS Startup Program comes  <br> 
+  in.
+  <br>
+  Wherever you are on your founding journey, we’re here to provide the resources and expertise you need.</p>
+
+
+</div>
+
+
+<div class="div2">
+
+<ul class="moving">
+  <li>Support with dedicated contact person</li>
+  <li>Access to all IONOS products</li>
+  <li>Joint marketing activities</li>
+  <li>Credit for your own cloud solutions</li>
+  <li>Discounts on IONOS products even in the alumni phase</li>
+</ul>
+
+
+</div>
+
+
+    </div>
+<div class="headline">
+  <h1>Discover your Startup Program path</h1>
+</div>
+
+<table >
+
+
+
+  <tr>
+<th>SPARK</th>
+<th>ACCELERATE</th>
+  </tr>
+
+<tr>
+<td>Develop on scalable infrastructure</td>
+<td>Scale & optimize your current infrastructure</td>
+</tr>
+
+<tr>
+<td>€5,000 starting credit for IONOS products</td>
+<td>Credit agreed upon consultation for all IONOS products.</td>
+</tr>
+
+
+
+ </table>
+<div class="topic">
+<h1>  Why partner with us?  </h1>
+
+</div>
+<section>
+<div class="container-fluid  famliy">
+<div class="row ">
+
+<div class="col-lg-4 col-md-3 col-sm-6  h-100  ">
+
+<img  class="img-thumbnail  rouneded mx-4 d-block " style="width: 150px; height: 150px;"  src="https://cs.uicdn.net/fileadmin/user_upload/Icon-persoenliche-Beratung.svg" alt="">
+
+<h4>Dedicated personal <br>contact</h4>
+<p class="mt-3  w-75">    Collaborate with your designated personal contact to get the best support for your development.</p>
+
+</div>
+
+
+
+<div class="col-lg-4 col-md-3 col-sm-6  h-100">
+
+<img  class="img-thumbnail  rouneded mx-4 d-block"  style="width: 150px; height: 150px;"  src="https://cs.uicdn.net/fileadmin/user_upload/Icons/on-light/icon-user-data.svg" alt="">
+
+<h4> Experienced cloud <br>architects </h4>
+<p  class="mt-3 w-75">  Work with IONOS Cloud specialists to design the optimal cloud architecture for your goals.   </p>
+
+</div>
+
+
+
+<div class="col-lg-4 col-md-3 col-sm-6  h-100">
+
+<img class="rouneded mx-5 d-block  img-thumbnail "  style="width: 150px; height: 150px;"  src="https://cs.uicdn.net/fileadmin/user_upload/Icons/on-light/icon-domain-transfer.svg" alt="">
+
+<h4 class="mt-3">Special product bundles</h4>
+<p class="mt-3  w-75">   Use all IONOS products and get access to attractive hosting, website, and email solution deals. </p>
+
+</div>
+
+
+<div class="container-fluid">
+
+
+  <div class="row mt-5 new  ">
+
+    <div class="col-lg-4 col-md-3 col-sm-6 mt-4  h-100  ">
+    
+    <img  class="img-thumbnail  rouneded mx-4 d-block " style="width: 150px; height: 150px;"  src="https://cs.uicdn.net/fileadmin/user_upload/Icons/on-light/icon-success-stories.svg" alt="">
+    
+    <h4>Data security</h4>
+    <p class="mt-3  w-75" >  IONOS provides the secure infrastructure, so you can focus on your business.</p>
+    
+    </div>
+    
+    
+    
+    <div class="col-lg-4 col-md-3 col-sm-6 mt-2   h-100">
+    
+    <img  class="img-thumbnail  rouneded mx-4 d-block"  style="width: 150px; height: 150px;"  src="https://cs.uicdn.net/fileadmin/user_upload/Icons/on-light/icon-transparent-billing.svg" alt="">
+    
+    <h4>Financial support  </h4>
+    <p  class="mt-3 w-75" >  Get $5,000 to spend on IONOS products in the first 12 months, with products discounts afterwards.   </p>
+    
+    </div>
+    
+    
+    
+    <div class="col-lg-4 col-md-3 col-sm-6  h-100">
+    
+    <img class="rouneded mx-4 d-block  img-thumbnail "  style="width: 150px; height: 150px;"  src="https://cs.uicdn.net/fileadmin/user_upload/Icons/on-light/icon-performance-level.svg" alt="">
+    
+    <h4 class="mt-1">Joint marketing <br> initiatives</h4>
+    <p class="mt-1 w-75">  Benefit from greater reach and awareness through joint marketing activities. </p>
+    
+    </div>
+    
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+</section>
+
+
+
+
+<div class="box">
+<div class="file">
+
+<h4>  Two years of support, one goal</h4>
+<p class="mt-3    ">     In your first year, you'll get a robust starting credit and dedicated support from our experts. As you transition into the alumni phase, enjoy up to a 30% discount on your entire IONOS infrastructure.  <br> <br>
+
+  You can count on us for ongoing communication and support to help nurture your goals and growth.</p>
+
+
+</div>
+<div class="file2">
+
+<img src="https://cs.uicdn.net/fileadmin/user_upload/IONOS-Illustrationen-1086x1000px-03.svg" class="img-fluid " style="width: 60%; height: 451px; float: right; margin-top: 90px;" >
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<section class="clear">
+<div class="  parent  container-fluid my-5 ">
+  
+  <div class="row2  row">
+    
+  <div> <h1>  Three steps to get your starting credit      </h1>      </div>
+
+<div class="col-lg-4 col-md-3 col-sm-6  mt-4">
+<p  class="number">1</p>
+<h3> Submit your application </h3>
+<p class="mt-4 font">Show what drives you and where you want to go, explaining briefly what makes your product or service unique.</p></div>
+
+
+
+<div class="col-lg-4 col-md-3 col-sm-6 mt-4 ">
+<p  class="number">2</p>
+<h3>Receive onboarding package </h3>
+<p class="mt-4  font">Dive into a world of possibilities with IONOS. We'll provide tailored onboarding and assistance for setting up your test account.</p></div>
+
+
+
+<div class="col-lg-4 col-md-3 col-sm-6 mt-4 ">
+<p  class="number">3</p>
+<h3> Get going with IONOS </h3>
+<p class="mt-4  font">Take off and secure the support you need to grow your business. We're excited to work with you!</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+</section>
+
+
+<section>
+<div class="container-fluid  my-2">
+
+
+ <div class="program"> 
+<h2>  Apply for the program</h2>
+<p  style="color: grey;"> Tell us more about your startup! To be eligible, you must meet the following requirements:</p>
+</div>
+
+<ul class="row my-4  clr">
+<li class="col mt-5 ">Startup is max. 5 years old</li>
+<li class="col mt-5">Verified LinkedIn profile</li>
+<li class="col mt-5">Proof of business  <br> registration</li>
+<li  class="col  mt-5">Company website</li>
+
+
+
+
+
+
+</ul>
+
+</div>
+
+
+</section>
+
+  
+  
+
+<div class="container my-5 usertyping ">
+  <div class="form-group mt-5">
+  <label class="my-1">Program*</label>
+  <input type="text" id="program" class="form-control"></div>
+  
+  
+  <div class="form-group  mt-3">
+  <label class="my-1">  Firstname*</label>
+  <input type="text" id="Firstname" class="form-control"></div>
+  
+  
+  <div class="form-group  mt-3">
+  <label class="my-1">Lastname*  </label>
+  <input type="text"  id="Lastname" class="form-control"></div>
+  
+  
+  
+  
+  <div class="form-group  mt-3">
+      <label class="my-1">BusinessEmail*  </label>
+      <input type="text" id="BusinessEmail"  class="form-control"></div>
+  
+  
+  
+  <div class="form-group  mt-3">
+  <label class="my-1">BusinessPhone*  </label>
+  <input type="text"   id="BusinessPhone"  class="form-control"></div>
+  
+  
+  
+  <div class="form-group  mt-3">
+      <label class="my-1">  Company*</label>
+      <input type="text" id="Company" class="form-control"></div>
+
+
+  <div class="form-group  mt-3" style="margin-bottom: 110px;">
+      <label class="my-1">  Your message</label>
+      <textarea type="text" id="Yourmessage"  class="form-control"></textarea></div>
+
+<div class="applynow" onclick="Applynow()"><button class=" btn4 btn btn-info mx-auto  mt-5 press rouneded-circle ">  Apply now</button>
+<p>* Required field</p>
+</div>
+
+</div>
+
+
+
+<table  class="  table  w-75    m-auto   mt-3 "    >
+
+  <thead> 
+  
+  <th>type</th>
+  <th>name</th>
+  <th>last</th>
+  <th>email</th>
+  <th>phone</th>
+  <th>work</th>
+  <th>desc</th>
+  </thead>
+  
+  
+  
+  <tbody  id="tablebody">
+  <tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  </tr>
+  
+  
+  
+  
+  
+  </tbody>
+  
+  
+  
+  
+  
+  
+  
+      </table>
+  
+
+
+<div class="  clearbox " style="overflow: auto;">
+<div class="my-3"><img src="https://cs.uicdn.net/fileadmin/user_upload/Illustration-391x360px-05.svg" style="width: 44%; height: 349px; float: left;" alt="">   </div>
+
+
+
+<div class="empty">
+<h4>Startup Guide</h4>
+<h5 class="mt-4">Comprehensive guide to founding, growth, and beyond.</h5>
+<p class="mt-3 w-85">Discover crucial insights for aspiring entrepreneurs, productivity enhancement, effective business management, and valuable tips in our Startup Guide. </p>
+
+</div>
+<button class="btn btn-outline-primary     mt-2 " style="width: 11%; height: 47px;  "> Learn MORE</button>
+
+</div>
+
+<footer class="footer" style="overflow: auto;">
+<div class="block">
+<a href="" >About IONOS</a>
+<a href="" class="mt-3">IONOS Group</a>
+<a href="" class="mt-3">Management</a>
+<a href="" class="mt-3">Newsroom</a>
+<a href=""class="mt-3">Careers</a>
+<a href=""class="mt-3">ionos.com</a>
+
+
+
+
+</div>
+
+
+
+<div class="block1">
+<a href="" >Terms and Conditions: IONOS <br> Cloud Inc.</a>
+<a href=""class="mt-3">Privacy Policy</a>
+<a href=""class="mt-3">Cookies</a>
+
+
+
+</div>
+
+
+<div class="block2">
+<a href="">Online Support</a>
+<a href=""class="mt-3">Help Center</a>
+<a href=""class="mt-3">API Documentation</a>
+<a href=""class="mt-3">DCD Login</a>
+<a href=""class="mt-3">Cloud Panel</a>
+<a href=""class="mt-3">Status</a>
+
+</div>
+
+<div class="icon">
+  <img class="icon1" src="data:image/svg+xml;base64,PHN2ZyBpZD0ibG9nbyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTE1NCAzMzgiPjx0aXRsZT5sb2dvLWlvbm9zLWNvbG9yLXdoaXRlPC90aXRsZT48ZyBpZD0ibG9nby1pb25vcy1jb2xvci13aGl0ZSI+PHBhdGggaWQ9Imlvbm9zIiBkPSJNMTA2NS41NzMsMzM2LjE1OGE4NC43MSw4NC43MSwwLDAsMS0xNi45ODktMS43MTgsODgsODgsMCwwLDEtNTguMDYtNDEuNDY1bC0uMzE2LS41ODFjLTYuMjg1LTEyLjU2NC0yLjE1MS0yNy4zNDQsOS42MDUtMzQuNGEyNS4xNTIsMjUuMTUyLDAsMCwxLDEyLjkyLTMuNTcyLDI1LjU4OSwyNS41ODksMCwwLDEsMjIuMjUzLDEzLjA2OGMuMjU5LjQ1OS41NTYuOTU2Ljg2NiwxLjQzNGwyLjcwNiwzLjY4MiwzLjYzNywzLjY3NmEzNS40NzcsMzUuNDc3LDAsMCwwLDE2LjU4OCw4LjAyMywzNi40ODcsMzYuNDg3LDAsMCwwLDI4LjYtNi41MzcsMzQuNjE0LDM0LjYxNCwwLDAsMCwxNC4zNi0yNS44NzEsMzUuNzQ3LDM1Ljc0NywwLDAsMC05Ljk0MS0yNy43NjRzLTc2LjgzMi03OS44LTgwLjI3OS04My41YTk0LjE3NSw5NC4xNzUsMCwwLDEtOS4yNjUtMTFjLTEwLjg0LTE1LjM2NS0xNC4yMy0zMy40OC0xMi41NTctNTEuNDEyYTgzLjQsODMuNCwwLDAsMSwxMC44MTktMzUuNTM0czMuNTItNS45NTMsNC41NTYtNy40NjVjNC4wNy01LjkzNiwxMi4wOC0xMy42MTIsMTcuNTctMTcuOWE5MC4zNzEsOTAuMzcxLDAsMCwxLDE0Ljc0NC04Ljg1Niw4NC4wMzUsODQuMDM1LDAsMCwxLDEwOS42LDMzLjgyNCwyNC45MTQsMjQuOTE0LDAsMCwxLDIuNjU0LDE5LjMwOEEyNS40NTEsMjUuNDUxLDAsMCwxLDExMzcuNSw3Ny4yNzVhMjQuNDE0LDI0LjQxNCwwLDAsMS0xMi40NTUsMy4zODUsMjUuMzc5LDI1LjM3OSwwLDAsMS0yMi4xLTEzLDMzLjQsMzMuNCwwLDAsMC0yMi4zNjQtMTUuODA2LDM0LjYzMSwzNC42MzEsMCwwLDAtMjcuMTE3LDYuMSwzMy4wNSwzMy4wNSwwLDAsMC0xMi44MjksMjMuOTIsMzMuNjE2LDMzLjYxNiwwLDAsMCw5LjE1MywyNS45MzVsNzguNTQ5LDgxYTg3LjgzNCw4Ny44MzQsMCwwLDEsMjQuMzYsNjYuOTIyYy0yLjIzNSwyNS4xODYtMTQuNzU0LDQ4LjAwOC0zNC4zNTksNjIuN2E4OC41MDcsODguNTA3LDAsMCwxLTUyLjc2MiwxNy43MzJtLTI0OC42LS4wMzNhODQuNTg0LDg0LjU4NCwwLDAsMCw4NC40NzktODQuNDkyVjg0LjUyOGE4NC40ODMsODQuNDgzLDAsMCwwLTE2OC45NjUsMFYyNTEuNjMzYTg0LjU4NSw4NC41ODUsMCwwLDAsODQuNDg2LDg0LjQ5Mm0wLTI4NS4wNjRjMTguMTQ1LDAsMzMuNDczLDE1LjMyMiwzMy40NzMsMzMuNDY3VjI1MS42MzNhMzMuNTE0LDMzLjUxNCwwLDAsMS0zMy40NzMsMzMuNDc0QTMzLjExOCwzMy4xMTgsMCwwLDEsNzgzLjUsMjUxLjYzM1Y4NC41MjhhMzMuNTExLDMzLjUxMSwwLDAsMSwzMy40ODEtMzMuNDY3TTQzNy41NTcsNjYuNTVWMzEwLjZhMjUuNSwyNS41LDAsMCwwLDUxLjAwNSwwVjE3Mi40Wm0xMzguMzU2LDk3LjNWMjUuNTM4YTI1LjUwNiwyNS41MDYsMCwwLDEsNTEuMDExLDBWMjY5LjcwNlpNNjI2LjUsMzA1LjEwNXY1LjQ1YTI1LjYsMjUuNiwwLDAsMS00OC4zNjMsMTEuNTY1TDQzNy44NzYsMzEuMzU4di01LjgyQTI1LjI3MywyNS4yNzMsMCwwLDEsNDUyLjQyMSwyLjYxM2EyNS4yMzIsMjUuMjMyLDAsMCwxLDM0LjA1MSwxMS44OTJabS0zNzkuODIzLDMxLjAyYTg0LjU5MSw4NC41OTEsMCwwLDAsODQuNDgtODQuNDkyVjg0LjUyOGE4NC40ODMsODQuNDgzLDAsMCwwLTE2OC45NjUsMFYyNTEuNjMzYTg0LjU4OSw4NC41ODksMCwwLDAsODQuNDg1LDg0LjQ5Mm0wLTI4NS4wNjRhMzMuOTY1LDMzLjk2NSwwLDAsMSwzMy40NzQsMzMuNDY3VjI1MS42MzNhMzMuNDc1LDMzLjQ3NSwwLDEsMS02Ni45NDgsMFY4NC41MjhhMzMuNTEyLDMzLjUxMiwwLDAsMSwzMy40NzQtMzMuNDY3TTAsMzA3LjkxN2EyNy44MTksMjcuODE5LDAsMSwwLDU1LjYzNywwVjI3LjgxOEEyNy44MTksMjcuODE5LDAsMCwwLDAsMjcuODE4WiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvZz48L3N2Zz4=" alt="">
+
+  <p >     © 
+  <!--  -->
+    2023
+    <!--  -->
+    IONOS Cloud Inc.
+
+  </p>
+
+  <img class="hand mx-auto" src="./png.png" alt="">
+  <p class="mx-auto " style="      width: 84%;
+  float: left;
+  padding-top: 20px;
+  text-align: right;">Sustainability</p>
+</div>
+
+<p style="color: white; padding-left: 70px; font-size: 16px; " class=" mt-5 mx-3">All IONOS cloud products (Compute Engine, IONOS S3 Object Storage, Managed Kubernetes) sold by IONOS Cloud Inc. are for commercial sale only. Terms  <br> and conditions apply.
+</p>
+</footer>
+<script src="boostrap.js" ></script>
+</body>
+</html>
